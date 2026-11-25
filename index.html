@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>72 Soatlik Aksiya, Tariflar va Batl Qoidalari</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-2: #162033;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #a855f7;
+      --gold: #f59e0b;
+      --green: #22c55e;
+      --border: rgba(255, 255, 255, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.14), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.12), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      padding: 16px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 540px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(168, 85, 247, 0.18));
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 18px;
+      padding: 20px 18px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 22px;
+      line-height: 1.28;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 4px;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tariff-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tariff-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tariff-card.plus {
+      border-color: rgba(34, 197, 94, 0.45);
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.07), var(--card));
+    }
+
+    .tariff-card.standart {
+      border-color: rgba(56, 189, 248, 0.55);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.1), var(--card));
+    }
+
+    .tariff-card.premium {
+      border-color: rgba(168, 85, 247, 0.55);
+      background: linear-gradient(180deg, rgba(168, 85, 247, 0.1), var(--card));
+    }
+
+    .tariff-card.vip {
+      border-color: rgba(245, 158, 11, 0.72);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.12), var(--card));
+      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.18), 0 8px 24px rgba(245, 158, 11, 0.08);
+    }
+
+    .tariff-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tariff-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .tariff-list {
+      list-style: none;
+      font-size: 13px;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tariff-list li::before {
+      content: "✨ ";
+    }
+
+    .rules-open-btn {
+      width: 100%;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 13px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--card);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.78);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 999;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-window {
+      width: 100%;
+      max-width: 520px;
+      max-height: 86vh;
+      background: var(--bg);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    .modal-header {
+      padding: 14px 16px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .modal-header h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .modal-close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card-2);
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 14px 16px 18px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rule-card {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px;
+    }
+
+    .rule-card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .rule-card ul {
+      padding-left: 18px;
+      font-size: 13px;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .rule-card b {
+      color: var(--text);
+    }
+
+    .cta-btn {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 8px 22px rgba(56, 189, 248, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="badge">🔥 72 SOATLIK AKSIYA • 🎁 +3 KUN BEPUL</div>
+      <h1>🚀 Guruhingizni mashhur qilish uchun ayni vaqt!</h1>
+      <p>Viktorina Bot guruhlar o'rtasidagi turnirni boshladi!</p>
+    </div>
+
+    <div class="section-title">💎 Bonus tariflar</div>
+    <div class="tariff-column">
+      <div class="tariff-card plus">
+        <div class="tariff-header">
+          <div class="tariff-name">⚡ 15 kunlik — Plus</div>
+        </div>
+        <ul class="tariff-list">
+          <li><b>+5 kun bonus</b> beriladi</li>
+          <li>Guruhlar o'rtasidagi <b>5 kunlik batlga</b> qo'shilish imkoni (<b>havolasiz</b>)</li>
+        </ul>
+      </div>
+
+      <div class="tariff-card standart">
+        <div class="tariff-header">
+          <div class="tariff-name">🔥 1 oylik — Standart</div>
+        </div>
+        <ul class="tariff-list">
+          <li><b>+15 kun bonus</b> beriladi</li>
+          <li>Guruhlar o'rtasidagi <b>5 kunlik batlga</b> qo'shilish imkoni (<b>havolasiz</b>)</li>
+          <li><b>Kunlik batl</b> reytingiga kiritish (<b>havolasiz</b>)</li>
+        </ul>
+      </div>
+
+      <div class="tariff-card premium">
+        <div class="tariff-header">
+          <div class="tariff-name">🚀 2 oylik — Premium</div>
+        </div>
+        <ul class="tariff-list">
+          <li><b>+25 kun bonus</b> beriladi</li>
+          <li>Guruhlar o'rtasidagi <b>5 kunlik batlga</b> qo'shilish imkoni (<b>havolali</b>)</li>
+          <li><b>Kunlik batl</b> reytingiga kiritish (<b>havolali</b>)</li>
+          <li><b>15 kunlik</b> yoki <b>1 oylik</b> obuna uchun bir martalik <b>-50% chegirma</b></li>
+        </ul>
+      </div>
+
+      <div class="tariff-card vip">
+        <div class="tariff-header">
+          <div class="tariff-name">👑 3 oylik — VIP</div>
+        </div>
+        <ul class="tariff-list">
+          <li><b>+35 kun bonus</b> beriladi</li>
+          <li>Guruhlar o'rtasidagi <b>5 kunlik batlga</b> qo'shilish imkoni (<b>havolali</b>)</li>
+          <li><b>Kunlik batl</b> reytingiga kiritish (<b>havolali</b>)</li>
+          <li><b>15 kunlik</b> yoki <b>1 oylik</b> obuna uchun bir martalik <b>-50% chegirma</b></li>
+          <li>Batl reytingida <b>10–20 o'rinlar</b> oralig'ida qolib ketgan taqdirda ham reyting ostida <b>o'rinni oshkor qilmasdan</b> e'lon qilish</li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="rules-open-btn" id="openRulesBtn" type="button">
+      <span>📜 Shart, qoida va tushuntirishlar</span>
+      <span>↗</span>
+    </button>
+
+    <button class="cta-btn" id="closeBtn">🚀 Boshlash</button>
+  </div>
+
+  <div class="modal-backdrop" id="rulesModal" aria-hidden="true">
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="rulesModalTitle">
+      <div class="modal-header">
+        <h2 id="rulesModalTitle">📜 Shart, qoida va tushuntirishlar</h2>
+        <button class="modal-close-btn" id="closeRulesBtn" type="button" aria-label="Yopish">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="rule-card">
+          <h3>🔗 "Havolali" va "havolasiz" nimani anglatadi?</h3>
+          <ul>
+            <li>🔗 <b>Havolali</b> — TOP-10 guruhlar reytingi e'lon qilinadigan tabloda (va ro'yxatlarda) guruhingiz <b>havolasi (ssilkasi) bilan</b> ko'rsatiladi.</li>
+            <li>🏷️ <b>Havolasiz</b> — guruhingiz reyting tablasida <b>havolasiz</b> (faqat nomi bilan) e'lon qilinadi.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <h3>📅 Kunlik batl shartlari</h3>
+          <ul>
+            <li>📈 Kunlik batlga qo'shilgan guruhlardagi <b>eng yuqori ball</b> asosida hisob-kitob qilinadi.</li>
+            <li>⏰ <b>TOP-10 reyting</b> har kuni soat <b>10:00 da</b> yangilanib e'lon qilinadi.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <h3>🗓️ 5 kunlik batl shartlari</h3>
+          <ul>
+            <li>⏳ 5 kunlik batl <b>5 kun</b> davom etadi.</li>
+            <li>🌙 Birinchi besh kunlikdagi <b>TOP-10 guruh reytingi</b> ikkinchi 5 kunlikda soat <b>22:00 da</b> e'lon qilinadi.</li>
+          </ul>
+        </div>
+
+        <div class="rule-card">
+          <h3>❄️ Obuna tugaganda nima bo'ladi?</h3>
+          <ul>
+            <li>🛑 Agar faollashgan muddat batl tugashidan oldinroq tugasa, ishtirokni davom ettirish uchun <b>qayta obuna sotib olish</b> kerak bo'ladi.</li>
+            <li>🧊 Obuna tugab qolsa va guruh batlda <b>1-o'rinda</b> (yoki boshqa o'rinda) bo'lsa, unga <b>ball qo'shilmaydi</b>, lekin balli <b>ayrilmaydi ham</b> (hisob qotib qoladi).</li>
+            <li>📉 Boshqa faol guruhlar ball yig'ib o'tib ketsa, obunasi tugagan guruh <b>avtomatik o'z o'rnini yo'qotadi</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tg = window.Telegram?.WebApp;
+    if (tg) {
+      tg.ready();
+      tg.expand();
+    }
+
+    const openRulesBtn = document.getElementById("openRulesBtn");
+    const closeRulesBtn = document.getElementById("closeRulesBtn");
+    const rulesModal = document.getElementById("rulesModal");
+
+    function openModal() {
+      rulesModal.classList.add("open");
+      rulesModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      rulesModal.classList.remove("open");
+      rulesModal.setAttribute("aria-hidden", "true");
+    }
+
+    openRulesBtn.addEventListener("click", openModal);
+    closeRulesBtn.addEventListener("click", closeModal);
+
+    rulesModal.addEventListener("click", (e) => {
+      if (e.target === rulesModal) {
+        closeModal();
+      }
+    });
+
+    document.getElementById("closeBtn").addEventListener("click", () => {
+      if (tg) {
+        tg.close();
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  </script>
+</body>
+</html>
