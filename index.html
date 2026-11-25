@@ -279,6 +279,47 @@
       gap: 12px;
     }
 
+    .rating-subtitle {
+      font-size: 12.5px;
+      color: var(--muted);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .link-guide-box {
+      background: #0b192c;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-guide-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #7dd3fc;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .link-guide-list {
+      list-style: none;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .link-guide-list li::before {
+      content: "• ";
+      color: var(--muted);
+    }
+
     .rule-card {
       background: var(--card-2);
       border: 1px solid var(--border);
@@ -494,6 +535,16 @@
         <button class="modal-close-btn" id="closeRatingBtn" type="button" aria-label="Yopish">✕</button>
       </div>
       <div class="modal-body">
+        <p class="rating-subtitle">Kunlik va 5 kunlik batl reytinglari qanday ishlashi haqida to'liq tushuntirish</p>
+
+        <div class="link-guide-box">
+          <div class="link-guide-title">ℹ️ Havola qanday ko'rinadi?</div>
+          <ul class="link-guide-list">
+            <li><span class="linked-group-name">Ko'k rangli va 🔗 belgili guruh nomi</span> — bosiladigan <b>havolali</b> guruh (<b>Premium</b> va <b>VIP</b> tariflar uchun). Ustiga bossangiz to'g'ridan-to'g'ri guruhga o'tiladi.</li>
+            <li><b>Oddiy oq rangli guruh nomi</b> — <b>havolasiz</b> ko'rinish (<b>Plus</b> va <b>Standart</b> tariflar uchun).</li>
+          </ul>
+        </div>
+
         <div class="rule-card">
           <h3>Kunlik reyting</h3>
           <div class="rating-sample-box">📊 KUNLIK BATL REYTINGI (TOP-10)
