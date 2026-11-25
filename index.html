@@ -304,6 +304,40 @@
     .rule-card b {
       color: var(--text);
     }
+
+    .rating-sample-box {
+      background: #0b1220;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #e2e8f0;
+      white-space: pre-line;
+    }
+
+    .linked-group-name {
+      color: #60a5fa;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+
+    .link-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #93c5fd;
+      background: rgba(59, 130, 246, 0.16);
+      border: 1px solid rgba(96, 165, 250, 0.35);
+      border-radius: 6px;
+      padding: 0 5px;
+      margin-left: 4px;
+      vertical-align: middle;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -403,6 +437,11 @@
       <span>📜 Shart, qoida va tushuntirishlar</span>
       <span>↗</span>
     </button>
+
+    <button class="rules-open-btn" id="openRatingBtn" type="button">
+      <span>📊 Reyting nima?</span>
+      <span>↗</span>
+    </button>
   </div>
 
   <div class="modal-backdrop" id="rulesModal" aria-hidden="true">
@@ -443,6 +482,54 @@
             <li>🧊 Obuna tugab qolsa va guruh batlda <b>1-o'rinda</b> (yoki boshqa o'rinda) bo'lsa, unga <b>ball qo'shilmaydi</b>, lekin balli <b>ayrilmaydi ham</b> (hisob qotib qoladi).</li>
             <li>📉 Boshqa faol guruhlar ball yig'ib o'tib ketsa, obunasi tugagan guruh <b>avtomatik o'z o'rnini yo'qotadi</b>.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="ratingModal" aria-hidden="true">
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="ratingModalTitle">
+      <div class="modal-header">
+        <h2 id="ratingModalTitle">📊 Reyting nima?</h2>
+        <button class="modal-close-btn" id="closeRatingBtn" type="button" aria-label="Yopish">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="rule-card">
+          <h3>Kunlik reyting</h3>
+          <div class="rating-sample-box">📊 KUNLIK BATL REYTINGI (TOP-10)
+📅 Sana: 2026-11-25
+
+🥇 <span class="linked-group-name">Hikmat Ilmi — Diniy Viktorina</span><span class="link-tag">🔗 Havola</span> — <b>1400 ball</b>
+🥈 Hidoyat Yo'li — <b>1100 ball</b>
+🥉 <span class="linked-group-name">Qur'on va Sunnat Sirlari</span><span class="link-tag">🔗 Havola</span> — <b>900 ball</b>
+4. <span class="linked-group-name">Ilm Nuri — Islomiy Savol-Javob</span><span class="link-tag">🔗 Havola</span> — <b>700 ball</b>
+5. Taqvo Ahli — <b>600 ball</b>
+6. <span class="linked-group-name">Solihlar Davrasi</span><span class="link-tag">🔗 Havola</span> — <b>500 ball</b>
+7. Iymon Halovati — <b>400 ball</b>
+8. <span class="linked-group-name">Sahobalar Hayoti</span><span class="link-tag">🔗 Havola</span> — <b>300 ball</b>
+9. Ramazon va Sunnat — <b>200 ball</b>
+10. Zikr va Duo — <b>100 ball</b></div>
+        </div>
+
+        <div class="rule-card">
+          <h3>5 kunlik reyting</h3>
+          <div class="rating-sample-box">🏆 5 KUNLIK BATL REYTINGI (TOP-10)
+🗓️ Sikl boshlangan sana: 2026-11-21
+
+🥇 <span class="linked-group-name">Qur'on va Sunnat Sirlari</span><span class="link-tag">🔗 Havola</span> — <b>5200 ball</b>
+🥈 <span class="linked-group-name">Hikmat Ilmi — Diniy Viktorina</span><span class="link-tag">🔗 Havola</span> — <b>4700 ball</b>
+🥉 Hidoyat Yo'li — <b>4100 ball</b>
+4. <span class="linked-group-name">Ilm Nuri — Islomiy Savol-Javob</span><span class="link-tag">🔗 Havola</span> — <b>3600 ball</b>
+5. Taqvo Ahli — <b>3200 ball</b>
+6. <span class="linked-group-name">Solihlar Davrasi</span><span class="link-tag">🔗 Havola</span> — <b>2800 ball</b>
+7. Iymon Halovati — <b>2400 ball</b>
+8. <span class="linked-group-name">Sahobalar Hayoti</span><span class="link-tag">🔗 Havola</span> — <b>1900 ball</b>
+9. Ramazon va Sunnat — <b>1500 ball</b>
+10. Zikr va Duo — <b>1200 ball</b>
+
+🤝 Hamkor guruhlar (10–20 o'rin oralig'ida):
+- <span class="linked-group-name">Baraka Ahli</span><span class="link-tag">🔗 Havola</span> — <b>900 ball</b> (Hamkor guruh)
+- <span class="linked-group-name">Niyat va Amal</span><span class="link-tag">🔗 Havola</span> — <b>700 ball</b> (Hamkor guruh)</div>
         </div>
       </div>
     </div>
@@ -491,6 +578,29 @@
     rulesModal.addEventListener("click", (e) => {
       if (e.target === rulesModal) {
         closeModal();
+      }
+    });
+
+    const openRatingBtn = document.getElementById("openRatingBtn");
+    const closeRatingBtn = document.getElementById("closeRatingBtn");
+    const ratingModal = document.getElementById("ratingModal");
+
+    function openRatingModal() {
+      ratingModal.classList.add("open");
+      ratingModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeRatingModal() {
+      ratingModal.classList.remove("open");
+      ratingModal.setAttribute("aria-hidden", "true");
+    }
+
+    openRatingBtn.addEventListener("click", openRatingModal);
+    closeRatingBtn.addEventListener("click", closeRatingModal);
+
+    ratingModal.addEventListener("click", (e) => {
+      if (e.target === ratingModal) {
+        closeRatingModal();
       }
     });
   </script>
