@@ -279,47 +279,6 @@
       gap: 12px;
     }
 
-    .rating-subtitle {
-      font-size: 12.5px;
-      color: var(--muted);
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .link-guide-box {
-      background: #0b192c;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 14px;
-      padding: 13px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .link-guide-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #7dd3fc;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .link-guide-list {
-      list-style: none;
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: #cbd5e1;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .link-guide-list li::before {
-      content: "• ";
-      color: var(--muted);
-    }
-
     .rule-card {
       background: var(--card-2);
       border: 1px solid var(--border);
@@ -344,6 +303,46 @@
 
     .rule-card b {
       color: var(--text);
+    }
+
+    .rating-intro {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .link-guide-box {
+      background: rgba(14, 41, 66, 0.65);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-guide-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #7dd3fc;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .link-guide-list {
+      list-style: none;
+      font-size: 12.5px;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .link-guide-list li::before {
+      content: "• ";
+      color: #94a3b8;
     }
 
     .rating-sample-box {
@@ -535,7 +534,9 @@
         <button class="modal-close-btn" id="closeRatingBtn" type="button" aria-label="Yopish">✕</button>
       </div>
       <div class="modal-body">
-        <p class="rating-subtitle">Kunlik va 5 kunlik batl reytinglari qanday ishlashi haqida to'liq tushuntirish</p>
+        <div class="rating-intro">
+          Kunlik va 5 kunlik batl reytinglari qanday ishlashi haqida to'liq tushuntirish
+        </div>
 
         <div class="link-guide-box">
           <div class="link-guide-title">ℹ️ Havola qanday ko'rinadi?</div>
